@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A77E0B31DB11BE800DA61DC /* SkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A77E0B21DB11BE800DA61DC /* SkillTableViewCell.swift */; };
 		3ADF80831DA64C6700E5BD50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF80821DA64C6700E5BD50 /* AppDelegate.swift */; };
 		3ADF80851DA64C6700E5BD50 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF80841DA64C6700E5BD50 /* FirstViewController.swift */; };
 		3ADF80881DA64C6700E5BD50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ADF80861DA64C6700E5BD50 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A77E0B21DB11BE800DA61DC /* SkillTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillTableViewCell.swift; sourceTree = "<group>"; };
 		3ADF807F1DA64C6700E5BD50 /* SwiftyCompanion42.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion42.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADF80821DA64C6700E5BD50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ADF80841DA64C6700E5BD50 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				3ADF80841DA64C6700E5BD50 /* FirstViewController.swift */,
 				3ADF80B21DA6780500E5BD50 /* ProfileViewController.swift */,
 				3ADF80861DA64C6700E5BD50 /* Main.storyboard */,
+				3A77E0B21DB11BE800DA61DC /* SkillTableViewCell.swift */,
 				3ADF80891DA64C6700E5BD50 /* Assets.xcassets */,
 				3ADF808B1DA64C6700E5BD50 /* LaunchScreen.storyboard */,
 				3ADF808E1DA64C6700E5BD50 /* Info.plist */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ADF80B31DA6780500E5BD50 /* ProfileViewController.swift in Sources */,
+				3A77E0B31DB11BE800DA61DC /* SkillTableViewCell.swift in Sources */,
 				3ADF80851DA64C6700E5BD50 /* FirstViewController.swift in Sources */,
 				3ADF80831DA64C6700E5BD50 /* AppDelegate.swift in Sources */,
 			);
@@ -488,6 +492,7 @@
 				3ADF80A91DA64C6700E5BD50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3ADF80AA1DA64C6700E5BD50 /* Build configuration list for PBXNativeTarget "SwiftyCompanion42Tests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +501,7 @@
 				3ADF80AC1DA64C6700E5BD50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3ADF80AD1DA64C6700E5BD50 /* Build configuration list for PBXNativeTarget "SwiftyCompanion42UITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +510,7 @@
 				3ADF80AF1DA64C6700E5BD50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
