@@ -26,9 +26,6 @@ class ProfileViewController: UIViewController {
     // MARK: functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let firstview = storyboard!.instantiateViewControllerWithIdentifier("start") as! FirstViewController
-        //self.dataFromApi = firstview.resultApi
-        //let res = dataFromApi
         self.dataFromApi = datasecond
         let urlImg = dataFromApi!["image_url"] as! String
         if let url = NSURL(string: urlImg) {
@@ -42,27 +39,15 @@ class ProfileViewController: UIViewController {
         ppImageView.layer.cornerRadius = ppImageView.frame.width/2
         ppImageView.clipsToBounds = true
         posteLabel.text = dataFromApi!["location"] as? String
+        if (posteLabel.text == nil){
+            posteLabel.text = "Non log"
+        }
         let test = dataFromApi!["cursus_users"] as! NSMutableArray
-        //print(test)
-        print(test[0]["level"])
-        //levelLabel.text = dataFromApi!["cursus_users"]!["level"] as? Int
-        //var dict : NSDictionary = dataFromApi!["cursus_users"] as! NSDictionary
-        //if var dict = dataFromApi!["cursus_users"] as! NSDictionary
-        //{
-          //  let value = dict["level"] as! String
-           // levelLabel.text = value
-        //}
-//        print(toto)
         let truc : Double = test[0]["level"] as! Double
         levelLabel.text = truc.description
-        print(levelLabel.text)
         loginLabel.text = dataFromApi!["login"] as? String
         mailLabel.text = dataFromApi!["email"] as? String
         phoneLabel.text = dataFromApi!["phone"] as? String
-        
-        print("debut res")
-        //print(dataFromApi)
-        print("fin res")
         // Do any additional setup after loading the view.
     }
     

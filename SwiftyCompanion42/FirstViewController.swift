@@ -115,12 +115,10 @@ class FirstViewController: UIViewController {
                 else if let d = data {
                     do {
                         if let dic : NSDictionary = try NSJSONSerialization.JSONObjectWithData(d, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
-                            //print("normalement le dictionnaire devrait etre la")
-                            //print(dic)
-                            //print("fin du doc")
                             dispatch_semaphore_signal(semaphore)
                             self.resultApi = dic
                             datasecond = dic
+                            print(datasecond)
                         }
                     }
                     catch (let err){
@@ -130,13 +128,7 @@ class FirstViewController: UIViewController {
             }
             [task.resume()]
             dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-            //let secondview = storyboard?.instantiateViewControllerWithIdentifier("Profile") as! ProfileViewController
-            //print("avant set datafromapi")
-            //secondview.dataFromApi = self.resultApi!
-            //print(resultApi)
-            //print("ensuite secondview")
-            //print(secondview.dataFromApi)
-            //navigationController?.pushViewController(secondview, animated: true)
+
         }
         if (iserror == "1"){
             return false}
