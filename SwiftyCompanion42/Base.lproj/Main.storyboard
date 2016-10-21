@@ -147,14 +147,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ja5-Rs-n4e">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ja5-Rs-n4e">
                                 <rect key="frame" x="0.0" y="242" width="600" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="ULf-Or-Wca"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SkillTableViewCell" rowHeight="40" id="pBX-6d-3ij" customClass="SkillTableViewCell" customModule="SwiftyCompanion42" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SkillCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="SkillCell" rowHeight="40" id="pBX-6d-3ij" customClass="SkillTableViewCell" customModule="SwiftyCompanion42" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pBX-6d-3ij" id="zC5-M3-IEv">
@@ -162,57 +162,43 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3SD-eO-2PL">
-                                                    <rect key="frame" x="334" y="19" width="253" height="2"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="253" id="i74-Hn-evs"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="334" y="19" width="257" height="2"/>
                                                 </progressView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZu-eF-tpj">
-                                                    <rect key="frame" x="277" y="-2" width="42" height="43"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="42" id="JL8-wT-PrR"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="281" y="14" width="38" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMl-OQ-9rY">
-                                                    <rect key="frame" x="8" y="14" width="20" height="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skill" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMl-OQ-9rY">
+                                                    <rect key="frame" x="9" y="14" width="20" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="jZu-eF-tpj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PMl-OQ-9rY" secondAttribute="trailing" constant="50" id="1L1-SF-TSI"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="PMl-OQ-9rY" secondAttribute="trailing" constant="542" id="AR7-c3-aDU"/>
-                                                <constraint firstItem="jZu-eF-tpj" firstAttribute="top" secondItem="zC5-M3-IEv" secondAttribute="topMargin" constant="-10" id="F6d-ss-DqX"/>
-                                                <constraint firstItem="jZu-eF-tpj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PMl-OQ-9rY" secondAttribute="trailing" constant="50" id="GXA-3Y-LV9"/>
-                                                <constraint firstItem="PMl-OQ-9rY" firstAttribute="leading" secondItem="zC5-M3-IEv" secondAttribute="leadingMargin" id="RTT-RN-X4P"/>
-                                                <constraint firstItem="3SD-eO-2PL" firstAttribute="centerY" secondItem="zC5-M3-IEv" secondAttribute="centerY" id="a2A-3e-JmX"/>
-                                                <constraint firstItem="3SD-eO-2PL" firstAttribute="leading" secondItem="jZu-eF-tpj" secondAttribute="trailing" constant="15" id="c6f-N9-6ZB"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="3SD-eO-2PL" secondAttribute="trailing" constant="5" id="cYh-Eg-xvp"/>
-                                                <constraint firstItem="PMl-OQ-9rY" firstAttribute="centerY" secondItem="jZu-eF-tpj" secondAttribute="centerY" id="fLc-Ma-Rjv"/>
-                                                <constraint firstItem="jZu-eF-tpj" firstAttribute="centerY" secondItem="3SD-eO-2PL" secondAttribute="centerY" id="gjY-iR-41Q"/>
-                                                <constraint firstItem="PMl-OQ-9rY" firstAttribute="leading" secondItem="zC5-M3-IEv" secondAttribute="leadingMargin" id="oOw-kC-YC7"/>
-                                                <constraint firstItem="PMl-OQ-9rY" firstAttribute="centerY" secondItem="jZu-eF-tpj" secondAttribute="centerY" id="tx4-Z5-zgO"/>
+                                                <constraint firstItem="3SD-eO-2PL" firstAttribute="centerY" secondItem="jZu-eF-tpj" secondAttribute="centerY" id="Bqk-bq-29Y"/>
+                                                <constraint firstItem="PMl-OQ-9rY" firstAttribute="leading" secondItem="zC5-M3-IEv" secondAttribute="leadingMargin" constant="1" id="DWj-N3-rZa"/>
+                                                <constraint firstItem="jZu-eF-tpj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PMl-OQ-9rY" secondAttribute="trailing" constant="5" id="KjG-ed-avf"/>
+                                                <constraint firstItem="3SD-eO-2PL" firstAttribute="leading" secondItem="jZu-eF-tpj" secondAttribute="trailing" constant="15" id="VzJ-ec-hDM"/>
+                                                <constraint firstItem="PMl-OQ-9rY" firstAttribute="centerY" secondItem="jZu-eF-tpj" secondAttribute="centerY" id="Z8M-AI-BSf"/>
+                                                <constraint firstItem="jZu-eF-tpj" firstAttribute="centerY" secondItem="zC5-M3-IEv" secondAttribute="centerY" id="ZYg-2F-z0O"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="3SD-eO-2PL" secondAttribute="trailing" constant="1" id="ium-x0-DRv"/>
+                                                <constraint firstItem="jZu-eF-tpj" firstAttribute="centerX" secondItem="zC5-M3-IEv" secondAttribute="centerX" id="pRA-km-NMu"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="AR7-c3-aDU"/>
-                                                    <exclude reference="oOw-kC-YC7"/>
-                                                    <exclude reference="tx4-Z5-zgO"/>
-                                                    <exclude reference="GXA-3Y-LV9"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="PercentLabel" destination="jZu-eF-tpj" id="QZN-q9-uGG"/>
                                             <outlet property="ProgressBar" destination="3SD-eO-2PL" id="Ukd-PN-xFn"/>
-                                            <outlet property="SkillLabel" destination="PMl-OQ-9rY" id="yqd-dT-ngP"/>
+                                            <outlet property="labelSkill" destination="PMl-OQ-9rY" id="6hJ-7r-jfJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="WGU-mn-P4D" id="ucU-vc-rnm"/>
+                                    <outlet property="delegate" destination="WGU-mn-P4D" id="qx0-HX-u19"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skills" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfW-Rs-PHp">
                                 <rect key="frame" x="20" y="225" width="26" height="12"/>
@@ -226,9 +212,55 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="alE-HD-7Lh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="alE-HD-7Lh">
                                 <rect key="frame" x="0.0" y="420" width="600" height="180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="listProject" rowHeight="40" id="g83-iP-v0T" customClass="ProjectTableViewCell" customModule="SwiftyCompanion42" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g83-iP-v0T" id="BsW-5K-Ytp">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tl8-wh-pDS">
+                                                    <rect key="frame" x="9" y="14" width="35" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" red="0.044461653202628404" green="0.37790338596774886" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PercentProject" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLh-0A-kPg">
+                                                    <rect key="frame" x="264" y="14" width="72" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" red="0.044461653199999999" green="0.37790338600000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Qc0-o8-oqc">
+                                                    <rect key="frame" x="351" y="19" width="240" height="2"/>
+                                                </progressView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Tl8-wh-pDS" firstAttribute="centerY" secondItem="xLh-0A-kPg" secondAttribute="centerY" id="5z9-06-dJo"/>
+                                                <constraint firstItem="Qc0-o8-oqc" firstAttribute="leading" secondItem="xLh-0A-kPg" secondAttribute="trailing" constant="15" id="6B5-8i-5AU"/>
+                                                <constraint firstItem="Qc0-o8-oqc" firstAttribute="centerY" secondItem="xLh-0A-kPg" secondAttribute="centerY" id="M79-da-aZ8"/>
+                                                <constraint firstItem="xLh-0A-kPg" firstAttribute="centerX" secondItem="BsW-5K-Ytp" secondAttribute="centerX" id="QHc-nm-UVW"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Qc0-o8-oqc" secondAttribute="trailing" constant="1" id="XuF-Kv-yj8"/>
+                                                <constraint firstItem="xLh-0A-kPg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Tl8-wh-pDS" secondAttribute="trailing" constant="5" id="iOD-4k-5AY"/>
+                                                <constraint firstItem="Tl8-wh-pDS" firstAttribute="leading" secondItem="BsW-5K-Ytp" secondAttribute="leadingMargin" constant="1" id="kNK-Ir-Nrw"/>
+                                                <constraint firstItem="xLh-0A-kPg" firstAttribute="centerY" secondItem="BsW-5K-Ytp" secondAttribute="centerY" id="m3C-xr-RKD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="PercentLabel" destination="xLh-0A-kPg" id="Sei-Cz-oic"/>
+                                            <outlet property="ProgressBar" destination="Qc0-o8-oqc" id="Yhh-lj-s1f"/>
+                                            <outlet property="ProjectLabel" destination="Tl8-wh-pDS" id="oHw-c2-8Eu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="WGU-mn-P4D" id="HO4-1N-cXQ"/>
+                                    <outlet property="delegate" destination="WGU-mn-P4D" id="ZiX-3E-YUh"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

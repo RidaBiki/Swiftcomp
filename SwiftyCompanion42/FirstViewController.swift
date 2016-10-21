@@ -118,7 +118,7 @@ class FirstViewController: UIViewController {
                             dispatch_semaphore_signal(semaphore)
                             self.resultApi = dic
                             datasecond = dic
-                            print(datasecond)
+                            //print(datasecond)
                         }
                     }
                     catch (let err){

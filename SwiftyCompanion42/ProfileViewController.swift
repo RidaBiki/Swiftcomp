@@ -28,17 +28,20 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        //print(dataFromApi)
         
-        //SkillTable.registerNib(UINib(nibName: "SkillTableViewCell", bundle: nil), forCellReuseIdentifier: "SkillCell")
-        SkillTable.registerClass(SkillTableViewCell.self, forCellReuseIdentifier: "Cell")
+//        SkillTable.registerNib(UINib(nibName: "SkillTableViewCell", bundle: nil), forCellReuseIdentifier: "SkillCell")
+//        SkillTable.registerClass(SkillTableViewCell.self, forCellReuseIdentifier: "SkillCell")
         SkillTable.delegate = self
         SkillTable.dataSource = self
+//        var nib = UINib(nibName: "SkillTblCell", bundle: nil)
+//        SkillTable.registerNib(nib, forCellReuseIdentifier: "SkillCell")
         self.dataFromApi = datasecond
         let urlImg = dataFromApi!["image_url"] as! String
         if let url = NSURL(string: urlImg) {
             if let data = NSData(contentsOfURL: url) {
                 ppImageView.image = UIImage(data: data)
-            }        
+            }
         }
         //print(dataFromApi!["projects_users"])
         ppImageView.layer.borderWidth = 1
@@ -52,7 +55,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         let test = dataFromApi!["cursus_users"] as! NSMutableArray
         let skills = test[0]["skills"] as! NSMutableArray
-        print(skills)
+        //print(skills)
         let truc : Double = test[0]["level"] as! Double
         levelLabel.text = truc.description
         loginLabel.text = dataFromApi!["login"] as? String
@@ -66,34 +69,41 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! SkillTableViewCell
+        
+        let cell : SkillTableViewCell =  self.SkillTable.dequeueReusableCellWithIdentifier("SkillCell", forIndexPath: indexPath) as! SkillTableViewCell
         let test = dataFromApi!["cursus_users"] as! NSMutableArray
         let skills = test[0]["skills"] as! NSMutableArray
+        print(test)
         let eachSkill = skills[indexPath.row]
+        print(eachSkill)
+        print(eachSkill["name"] as! String)
         print("esdcwesdacfserfeadvgfdsgsersdfgersadfegrwdfsgrewdfgr")
-        for key in eachSkill as! NSMutableArray { // PROBLEME ICI CAR N ARRIVE PAS A ACCEDER AUX VALEURS DE 
+        //for key in eachSkill as! NSMutableArray { // PROBLEME ICI CAR N ARRIVE PAS A ACCEDER AUX VALEURS DE
             // EACHSKILL
             //
             //
             //
             //
             //
-            
-            if (key == "name"){
-                cell.SkillLabel.text = eachSkill[key]
-            }
-            if (key == "level"){
-                let level = eachSkill[key] as! Double
-            }
-        }
+            let name = eachSkill["name"] as! String
+//            print(name)
+        cell.labelSkill.text? = name
+        //print("valeur de key = "+name)
+            //if (key == "name"){
+             //cell.SkillLabel.text = name
+            //}
+            //if (key == "level"){
+            let level = eachSkill["level"] as! Double
+            //}
+        //}
         cell.PercentLabel.text = level.description
-        cell.ProgressBar.progress = Float(level / 100)
+        cell.ProgressBar.progress = Float(level / 20)
         
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let test = dataFromApi!["cursus_users"] as! NSMutableArray
+        let test = datasecond!["cursus_users"] as! NSMutableArray
         let skills = test[0]["skills"] as! NSMutableArray
         return skills.count
     }

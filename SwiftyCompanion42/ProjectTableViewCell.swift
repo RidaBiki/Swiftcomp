@@ -1,24 +1,23 @@
 //
-//  SkillTableViewCell.swift
+//  ProjectTableViewCell.swift
 //  SwiftyCompanion42
 //
-//  Created by Rida BIKITARAN on 10/14/16.
+//  Created by Rida BIKITARAN on 10/20/16.
 //  Copyright © 2016 Rida BIKITARAN. All rights reserved.
 //
 
 import UIKit
 
-class SkillTableViewCell: UITableViewCell {
+class ProjectTableViewCell: UITableViewCell {
 
-    // MARK: Properties
-    
-
+    //MARK: Properties
+    @IBOutlet weak var ProjectLabel: UILabel!
     @IBOutlet weak var PercentLabel: UILabel!
     @IBOutlet weak var ProgressBar: UIProgressView!
-    @IBOutlet weak var labelSkill: UILabel!
-
     
-    // MARK: Functions
+    
+    
+    //MARK: Function
     
     override func awakeFromNib() {
         super.awakeFromNib()
