@@ -28,14 +28,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(dataFromApi)
         
-//        SkillTable.registerNib(UINib(nibName: "SkillTableViewCell", bundle: nil), forCellReuseIdentifier: "SkillCell")
-//        SkillTable.registerClass(SkillTableViewCell.self, forCellReuseIdentifier: "SkillCell")
         SkillTable.delegate = self
         SkillTable.dataSource = self
-//        var nib = UINib(nibName: "SkillTblCell", bundle: nil)
-//        SkillTable.registerNib(nib, forCellReuseIdentifier: "SkillCell")
         self.dataFromApi = datasecond
         let urlImg = dataFromApi!["image_url"] as! String
         if let url = NSURL(string: urlImg) {
@@ -43,7 +38,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 ppImageView.image = UIImage(data: data)
             }
         }
-        //print(dataFromApi!["projects_users"])
         ppImageView.layer.borderWidth = 1
         ppImageView.layer.masksToBounds = false
         ppImageView.layer.borderColor = UIColor.blackColor().CGColor
@@ -55,7 +49,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         let test = dataFromApi!["cursus_users"] as! NSMutableArray
         let skills = test[0]["skills"] as! NSMutableArray
-        //print(skills)
         let truc : Double = test[0]["level"] as! Double
         levelLabel.text = truc.description
         loginLabel.text = dataFromApi!["login"] as? String
@@ -70,42 +63,53 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        if tableView.restorationIdentifier == "skill"{
         let cell : SkillTableViewCell =  self.SkillTable.dequeueReusableCellWithIdentifier("SkillCell", forIndexPath: indexPath) as! SkillTableViewCell
+        
         let test = dataFromApi!["cursus_users"] as! NSMutableArray
         let skills = test[0]["skills"] as! NSMutableArray
-        print(test)
         let eachSkill = skills[indexPath.row]
-        print(eachSkill)
-        print(eachSkill["name"] as! String)
-        print("esdcwesdacfserfeadvgfdsgsersdfgersadfegrwdfsgrewdfgr")
-        //for key in eachSkill as! NSMutableArray { // PROBLEME ICI CAR N ARRIVE PAS A ACCEDER AUX VALEURS DE
-            // EACHSKILL
-            //
-            //
-            //
-            //
-            //
-            let name = eachSkill["name"] as! String
-//            print(name)
+        let name = eachSkill["name"] as! String
         cell.labelSkill.text? = name
-        //print("valeur de key = "+name)
-            //if (key == "name"){
-             //cell.SkillLabel.text = name
-            //}
-            //if (key == "level"){
-            let level = eachSkill["level"] as! Double
-            //}
-        //}
+        let level = eachSkill["level"] as! Double
         cell.PercentLabel.text = level.description
         cell.ProgressBar.progress = Float(level / 20)
-        
         return cell
+        }
+        else{
+            let cell : ProjectTableViewCell =  self.ProjectTable.dequeueReusableCellWithIdentifier("listProject", forIndexPath: indexPath) as! ProjectTableViewCell
+            let project = dataFromApi!["projects_users"] as! NSMutableArray
+            let eachProject = project[indexPath.row]
+            let currentProject = eachProject["project"] as! NSDictionary
+            let projectName = currentProject["name"] as! String
+            cell.ProjectLabel.text = projectName
+            if let title = eachProject["final_mark"] as? Int
+            {
+                let percent = eachProject["final_mark"] as! Int
+                let percent2 = eachProject["final_mark"] as! Double
+                cell.PercentLabel.text = percent.description
+                cell.ProgressBar.progress = Float(percent2 / 125)
+            }
+            else
+            {
+                let percent = "-"
+                cell.PercentLabel.text = percent
+                cell.ProgressBar.progress = 0
+            }
+            return cell
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView.restorationIdentifier == "skill"{
         let test = datasecond!["cursus_users"] as! NSMutableArray
         let skills = test[0]["skills"] as! NSMutableArray
         return skills.count
+        }
+        else {
+            let test = datasecond!["projects_users"] as! NSMutableArray
+            return test.count
+        }
     }
     
     override func didReceiveMemoryWarning() {

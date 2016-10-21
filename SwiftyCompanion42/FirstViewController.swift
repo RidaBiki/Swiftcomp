@@ -12,6 +12,7 @@ var datasecond : NSDictionary?
 
 class FirstViewController: UIViewController {
     
+    @IBOutlet weak var ErrorLabel: UILabel!
     @IBOutlet weak var loginField: UITextField!
     @IBAction func searchButton(sender: UIButton) {
         
@@ -116,9 +117,15 @@ class FirstViewController: UIViewController {
                     do {
                         if let dic : NSDictionary = try NSJSONSerialization.JSONObjectWithData(d, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
                             dispatch_semaphore_signal(semaphore)
+                            if let urlImg = dic["image_url"] as? String{
+                                iserror = "0"
+                            }
+                            else{
+                                iserror = "1"
+                            }
                             self.resultApi = dic
                             datasecond = dic
-                            //print(datasecond)
+                            
                         }
                     }
                     catch (let err){
@@ -131,8 +138,10 @@ class FirstViewController: UIViewController {
 
         }
         if (iserror == "1"){
+            self.ErrorLabel.text = "Login inconnu"
             return false}
         else{
+            self.ErrorLabel.text = ""
             return true
         }
     }
