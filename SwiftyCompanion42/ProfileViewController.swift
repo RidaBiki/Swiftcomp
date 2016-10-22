@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate{
     // MARK: Properties
     
     var dataFromApi : NSDictionary?
@@ -48,7 +48,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             posteLabel.text = "Non log"
         }
         let test = dataFromApi!["cursus_users"] as! NSMutableArray
-        let skills = test[0]["skills"] as! NSMutableArray
+        //let skills = test[0]["skills"] as! NSMutableArray
         let truc : Double = test[0]["level"] as! Double
         levelLabel.text = truc.description
         loginLabel.text = dataFromApi!["login"] as? String
@@ -115,6 +115,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appdelegate.shouldSupportAllOrientation = false
     }
     
     /*

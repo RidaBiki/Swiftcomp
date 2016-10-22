@@ -69,6 +69,22 @@ class FirstViewController: UIViewController {
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         var iserror = ""
+        var login : String
+        login = loginField.text!
+        if login == ""{
+            self.ErrorLabel.text = "Erreur login"
+            return false
+        }
+        //login = login.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        //
+        let charSet = NSCharacterSet(charactersInString: "abcdefghijklmnopqrstuvwxyz-").invertedSet
+        //login = login.componentsSeparatedByCharactersInSet(charSet).joinWithSeparator("")
+        if login.rangeOfCharacterFromSet(charSet) != nil || login.lowercaseString.characters.contains("."){
+            self.ErrorLabel.text = "Erreur login"
+            return false
+        }
+        print(login)
+        login = login.stringByReplacingOccurrencesOfString(" ", withString: "")
         if (apiData.token == "" || !isvalid()) {
             let semaphore = dispatch_semaphore_create(0)
             let request = NSMutableURLRequest(URL: apiData.posturl!)
@@ -78,6 +94,7 @@ class FirstViewController: UIViewController {
                 (data, response, error) -> Void in
                 if error != nil {
                     print(error)
+                    iserror = "1"
                 }
                 else if let d = data {
                     do {
@@ -98,9 +115,7 @@ class FirstViewController: UIViewController {
         }
         if (apiData.token != "" && isvalid()){
             let semaphore = dispatch_semaphore_create(0)
-            var login : String
-            login = loginField.text!
-            let seturlrequest = apiData.usersurl+"/"+login+"?access_token="+apiData.token
+                        let seturlrequest = apiData.usersurl+"/"+login+"?access_token="+apiData.token
             let urlrequest = NSURL(string: seturlrequest)
             let request = NSMutableURLRequest(URL: urlrequest!)
             request.HTTPMethod = "GET"
