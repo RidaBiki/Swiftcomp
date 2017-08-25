@@ -20,8 +20,8 @@ class FirstViewController: UIViewController {
     
     struct apiData {
         static var token = ""
-        static let UID  = "f63ee21058be648daedcfb3a784407c9df028f1a714be8a4d2ff6399f443d259"
-        static let SECRET = "3bf014d19ce214fba61a59d37f5c51be9b62db5657d4d7bac5721ef7a7cddcb8"
+        static let UID  = ""
+        static let SECRET = ""
         static let posturl = NSURL(string: "https://api.intra.42.fr/oauth/token")
         static let tokenurl = "https://api.intra.42.fr/oauth/token/info"
         static let usersurl = "https://api.intra.42.fr/v2/users"
